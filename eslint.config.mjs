@@ -31,30 +31,7 @@ export default tseslint.config(
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn',
-      // 'padding-line-between-statements': [
-      //   'error',
-      //   { blankLine: 'always', prev: 'class', next: ['class field', 'class static field', 'method'] },
-      // ],
-      // // Пустая строка между методами и полями
-      // 'lines-around-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
-      // // Разрешает не больше одной пустой строки подряд
-      // 'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1, maxBOF: 0 }],
-      // endOfLine: 'off',
-      // 'prettier/prettier': [
-      //   'error',
-      //   {
-      //     singleQuote: true,
-      //     trailingComma: 'all',
-      //     printWidth: 120,
-      //     singleAttributePerLine: true,
-      //     bracketSpacing: true,
-      //     tabWidth: 2,
-      //     useTabs: false,
-      //     semi: true,
-      //     arrowParens: 'always',
-      //     endOfLine: 'auto',
-      //   },
-      // ],
+      '@typescript-eslint/no-unsafe-call': ['warn', { ignoreDestructuring: true }],
     },
   },
 );
