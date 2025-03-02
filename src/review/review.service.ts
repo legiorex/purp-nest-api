@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { ReviewModel } from './model/review.model';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { DeleteResult, Model, Types } from 'mongoose';
@@ -15,7 +15,13 @@ export class ReviewService {
     return this.reviewModel.findByIdAndDelete(id).exec();
   }
   async findByProductId(productId: string): Promise<ReviewModel[]> {
+    if (!productId || !Types.ObjectId.isValid(productId)) {
+      throw new BadRequestException('Invalid productId format');
+    }
     return this.reviewModel.find({ productId: new Types.ObjectId(productId) }).exec();
+  }
+  async findByRating(rating: string): Promise<ReviewModel[]> {
+    return this.reviewModel.find({ rating }).exec();
   }
 
   async deleteByProductId(productId: string): Promise<DeleteResult> {
